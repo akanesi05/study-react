@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import styles from "@/styles/Home.module.css";
+import styles from "./Main.module.css";
 import {Links} from "@/components/Links";
 import {Headline} from "@/components/Headline";
 
