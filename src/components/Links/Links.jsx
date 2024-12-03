@@ -1,5 +1,5 @@
 
-import styles from "./Links.module.css";
+import styles from "src/components/Links/Links.module.css";
 import Image from "next/image"
 
 

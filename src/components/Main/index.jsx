@@ -1,8 +1,9 @@
 import Image from "next/image";
 
-import styles from "./Main.module.css";
-import {Links} from "@/components/Links";
-import {Headline} from "@/components/Headline";
+import styles from "src/components/Main/Main.module.css";
+//import {Links} from "@/src/components/Links/Links";
+import {Headline} from "src/components/Headline";
+import { Links } from "src/components/Links/Links";
 
 
 export  function Main(props) {
