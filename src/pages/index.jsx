@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import localFont from "next/font/local";
-import styles from "@/src/styles/Home.module.css";
+import styles from "src/styles/Home.module.css";
 import { Footer } from "src/components/Footer";
 import {Headline} from "src/components/Headline";
 import{Main}from "src/components/Main";
