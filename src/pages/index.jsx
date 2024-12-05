@@ -6,7 +6,7 @@ import { Footer } from "src/components/Footer";
 import {Headline} from "src/components/Headline";
 import{Main}from "src/components/Main";
 import { Header } from "src/components/Header";
-import { useCallback } from "react";
+import { useCallback, useEffect } from "react";
 
 // const handleClick=(e)=>{
 //   console.log(e.target.href)
@@ -23,11 +23,28 @@ const geistMono = localFont({
   weight: "100 900",
 });
 const foo=1;
-export default function Home() {
+ export default function Home() {
   const handleClick=useCallback((e)=>{
     console.log(e.target.href);
     e.preventDefault();alert(foo);},[])
   
+  // useEffect(()=>{
+  //   document.body.style.backgroundColor="lightblue"
+  //   return()=>{
+  //     document.body.style.backgroundColor=""
+    
+  //   }
+
+  // },[])
+
+   useEffect(()=>{
+    document.body.style.backgroundColor="lightblue"
+    return()=>{
+      document.body.style.backgroundColor=""
+    
+    }
+
+  },[])
   return (
     <>
       <Head>
