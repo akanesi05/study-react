@@ -6,7 +6,18 @@ import {Headline} from "src/components/Headline";
 import { Links } from "src/components/Links/Links";
 
 
+
 export  function Main(props) {
+  // useEffect(()=>{
+  //   document.body.style.backgroundColor="lightblue"
+  //   return()=>{
+  //     document.body.style.backgroundColor=""
+    
+  //   }
+
+  // },[])
+
+  
   return (
     <>
       
