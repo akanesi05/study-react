@@ -27,6 +27,7 @@ const geistMono = localFont({
   const [count,setCount]=useState(1)
   const [text,setText]=useState("")
   const [isShow,setIsshow]=useState(true)
+  const [array,setArray]=useState([])
   const handleClick=useCallback((e)=>{
     if (count<10){
     setCount(count=>count+1)
@@ -35,7 +36,7 @@ const geistMono = localFont({
 
 
     const handleDisplay=useCallback(()=>{
-    setIsshow((isShow)=>!isShow)
+    setIsshow((previsShow)=>!previsShow)
     },[])
  
   // useEffect(()=>{
@@ -64,6 +65,13 @@ const geistMono = localFont({
     setText(e.target.value.trim())
   },[])
 
+  const handleAdd=useCallback(()=>{
+    setArray((prevArray)=>{
+      const newArray=[...prevArray,1]
+      return newArray
+    })
+  },[])
+
   return (
     <>
       <Head>
@@ -77,6 +85,12 @@ const geistMono = localFont({
       onClick={handleClick}>ボタン</button>
       <button onClick={handleDisplay}    >{isShow ?"非表示":"表示"}</button>
       <input type="text"  value={text} onChange={handleChange}/>
+      <button onClick={handleAdd} >追加</button>
+      <ul>{array.map(item=>{
+        return(
+          <li key={item}>{item}</li>
+        )
+      })}</ul>
       <Header/>
       {isShow? <h1>{count}</h1>:null}
       <div
