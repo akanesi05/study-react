@@ -6,7 +6,10 @@ import { Footer } from "src/components/Footer";
 import {Headline} from "src/components/Headline";
 import{Main}from "src/components/Main";
 import { Header } from "src/components/Header";
-import { useCallback, useEffect, useState } from "react";
+import { useCounter } from "src/hooks/useCounter";
+
+import { useInputArray } from "src/hooks/useInputArray";
+import { useBgLightblue } from "src/hooks/useBgLightblue";
 
 // const handleClick=(e)=>{
 //   console.log(e.target.href)
@@ -24,57 +27,10 @@ const geistMono = localFont({
 });
 //let foo=1;
  export default function Home() {
-  const [count,setCount]=useState(1)
-  const [text,setText]=useState("")
-  const [isShow,setIsshow]=useState(true)
-  const [array,setArray]=useState([])
-  const handleClick=useCallback((e)=>{
-    if (count<10){
-    setCount(count=>count+1)
-    }
-    },[count])
-
-
-    const handleDisplay=useCallback(()=>{
-    setIsshow((previsShow)=>!previsShow)
-    },[])
+  const{count ,isShow,handleClick,handleDisplay}=useCounter()
+ const{text,array,handleChange,handleAdd}=useInputArray()
+ useBgLightblue()
  
-  // useEffect(()=>{
-  //   document.body.style.backgroundColor="lightblue"
-  //   return()=>{
-  //     document.body.style.backgroundColor=""
-    
-  //   }
-
-  // },[])
-
-   useEffect(()=>{
-    document.body.style.backgroundColor="lightblue"
-    return()=>{
-      document.body.style.backgroundColor=""
-    
-    }
-
-  },[])
-
-  const handleChange =useCallback((e)=>{
-    if (e.target.value.length>5){
-      alert("5文字以内にしてください")
-      return
-    }
-    setText(e.target.value.trim())
-  },[])
-
-  const handleAdd=useCallback(()=>{
-    setArray((prevArray)=>{
-      if (prevArray.some((item)=>item===text)){
-        alert("同じ要素がすでに存在します")
-        return prevArray
-      }
-      return [...prevArray,text]
-    })
-  },[text])
-
   return (
     <>
       <Head>
