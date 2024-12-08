@@ -6,10 +6,6 @@ import { Footer } from "src/components/Footer";
 import {Headline} from "src/components/Headline";
 import{Main}from "src/components/Main";
 import { Header } from "src/components/Header";
-import { useCounter } from "src/hooks/useCounter";
-
-import { useInputArray } from "src/hooks/useInputArray";
-import { useBgLightblue } from "src/hooks/useBgLightblue";
 
 // const handleClick=(e)=>{
 //   console.log(e.target.href)
@@ -26,10 +22,8 @@ const geistMono = localFont({
   weight: "100 900",
 });
 //let foo=1;
- export default function Home() {
-  const{count ,isShow,handleClick,handleDisplay}=useCounter()
- const{text,array,handleChange,handleAdd}=useInputArray()
- useBgLightblue()
+ export default function Home(props) {
+  const{count ,isShow,handleClick,handleDisplay,text,array,handleChange,handleAdd}=props
  
   return (
     <>
@@ -61,3 +55,7 @@ const geistMono = localFont({
     </>
   );
 }
+
+
+
+
