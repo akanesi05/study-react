@@ -67,10 +67,13 @@ const geistMono = localFont({
 
   const handleAdd=useCallback(()=>{
     setArray((prevArray)=>{
-      const newArray=[...prevArray,1]
-      return newArray
+      if (prevArray.some((item)=>item===text)){
+        alert("同じ要素がすでに存在します")
+        return prevArray
+      }
+      return [...prevArray,text]
     })
-  },[])
+  },[text])
 
   return (
     <>
