@@ -1,6 +1,8 @@
 
 import styles from "src/components/Links/Links.module.css";
 import Image from "next/image"
+import { useCallback, useState } from "react";
+import handler from "src/pages/api/hello";
 
 
 const ITEMS =[
@@ -14,10 +16,12 @@ const ITEMS =[
 
 
 
-export  function Links() {
+export  function Links(items,handleReduce) {
+   
   return (
           <div className={styles.ctas}>
-            {ITEMS.map(item=>{
+            <button onClick={handleReduce}>減らす</button>
+            {items.map(item=>{
               return(
                 <a  key={item.href}href={item.href}
               className={styles.primary}

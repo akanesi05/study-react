@@ -4,7 +4,7 @@ import styles from "src/components/Main/Main.module.css";
 //import {Links} from "@/src/components/Links/Links";
 import {Headline} from "src/components/Headline";
 import { Links } from "src/components/Links/Links";
-
+import { useCallback, useState } from "react";
 
 
 export  function Main(props) {
@@ -14,9 +14,21 @@ export  function Main(props) {
   //     document.body.style.backgroundColor=""
     
   //   }
-
+  const ITEMS =[
+    {  href:"https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app",
+      title:" Deploy now2"
+    }
+  ,{  href:"https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app",
+      title:"Read our docs2"
+  }
+  ]
   // },[])
-
+  const [items,setItems]=useState([ITEMS])
+   const handleReduce=useCallback(()=>{
+    setItems(prevItems =>{
+      return prevItems.slice(0,prevItems.length-1)
+    })
+   },[])
   
   return (
     <>
@@ -28,7 +40,7 @@ export  function Main(props) {
         
           </Headline>
           
-          <Links/>
+          <Links items={items} handleReduce={handleReduce}/>
         </main>
        
     </>
