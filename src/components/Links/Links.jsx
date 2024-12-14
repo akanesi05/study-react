@@ -14,26 +14,27 @@ const ITEMS =[
 }
 ]
 
+//propsの中にitems propsの受け取り方
 
-
-export  function Links(items,handleReduce) {
-   
+export  function Links({items,handleReduce}) {
+   console.log(items,handleReduce)
   return (
           <div className={styles.ctas}>
             <button onClick={handleReduce}>減らす</button>
-            {items.map(item=>{
-              return(
-                <a  key={item.href}href={item.href}
-              className={styles.primary}
-              //href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {item.title}
-            </a>
+            {Object.values(items).map((item) => {
+  return (
+    <a
+      key={item.href}
+      href={item.href}
+      className={styles.primary}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      {item.title}
+    </a>
+  );
+})}
 
-              )
-            })}
           </div>
   );
 }
